@@ -42,7 +42,7 @@ The goal is to build an automated model for both identifying the key factors, an
 
 The analysis has been fully conducted with Python language, exploiting several machine learning and statistical frameworks available such as `scikit-learn`, `numpy`, `pandas`, `imblearn` together with other data visualization libraries (`matplotlib` and `seaborn`).
 
-Some code snippets have been reported for a better understanding of each step. Moreover, the full code implementation of this analysis is publicly available at [github.com/robertofranceschi/default-credit-card-prediction](https://github.com/robertofranceschi/default-credit-card-prediction).
+Some code snippets have been reported for a better understanding of each step. Moreover, the full code implementation of this analysis is publicly available at [github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys](https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys).
 
 -------------------------------------
 ## Exploratory Data Analysis
