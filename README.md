@@ -575,11 +575,11 @@ In a classification scenario, the model can be evaluated by computing different 
 
 Some of the most popular metrics are:
 
-* **_Accuracy_**: ratio of correct predictions over the total number of data points classified <br>$Accuracy = \frac{\#\ correctly\ classified\ samples}{total\ number\ of\ samples\ tested}=\frac{TP+TN}{TP+FP+TN+FN}$
+* **_Accuracy_**: ratio of correct predictions over the total number of data points classified <br>$Accuracy = \frac{\Num.\ correctly\ classified\ samples}{total\ number\ of\ samples\ tested}=\frac{TP+TN}{TP+FP+TN+FN}$
 
-* **_Precision_**: measures the fraction of correct classified instances among the ones classified as positive. Precision is an appropriate measure to use when the aim is to minimize _false positives_. <br>$Precision(c) = \frac{\#\ samples\ correctly\ assigned\ to\ class\ c}{\#\ of\ samples\ assigned\ to\ class\ c}=\frac{TP}{TP+FP}$
+* **_Precision_**: measures the fraction of correct classified instances among the ones classified as positive. Precision is an appropriate measure to use when the aim is to minimize _false positives_. <br>$Precision(c) = \frac{\Num.\ samples\ correctly\ assigned\ to\ class\ c}{\Num.\ of\ samples\ assigned\ to\ class\ c}=\frac{TP}{TP+FP}$
 
-* **_Recall_**: it measures how many of the actual positives a model capture through labelling it as True Positive. It is an appropriate score when the aim is to minimize false negatives <br>$Recall(c) = \frac{\#\ samples\ correctly\ assigned\ to\ class\ c}{\#\ of\ samples\ actually\ belonging\ to\ c}=\frac{TP}{TP+FN}$
+* **_Recall_**: it measures how many of the actual positives a model capture through labelling it as True Positive. It is an appropriate score when the aim is to minimize false negatives <br>$Recall(c) = \frac{\Num.\ samples\ correctly\ assigned\ to\ class\ c}{\Num.\ of\ samples\ actually\ belonging\ to\ c}=\frac{TP}{TP+FN}$
 
 * **_F1-score_**: is the harmonic mean of the precision and recall. <br>$F1-score(c) = \frac{2\cdot precision(c)\cdot recall(c)}{precision(c) +recall( c)}$
 
