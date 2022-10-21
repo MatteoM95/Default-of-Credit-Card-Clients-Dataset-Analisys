@@ -608,7 +608,7 @@ In this analysis we focus our attention in detecting which customer may be defau
 
 ### Logistic Regression
 
-Logistic Regression is a parametric, discriminative binary classification algorithm. The name is given after the fact that the algorithm can be interpreted as part of the _Generalized Linear Model_, where the response variables are distributed according to a Bernoulli distribution. In particular, the model assumes the predictors to be linked to the mean of the response variables ($p_{i}$) as:
+Logistic Regression is a parametric, discriminative binary classification algorithm. The name is given after the fact that the algorithm can be interpreted as part of the _Generalized Linear Model_, where the response variables are distributed according to a Bernoulli distribution. In particular, the model assumes the predictors to be linked to the mean of the response variables ( $ p_{i} $ ) as:
 
 $$ observation\ ( x_{i} , y_{i}) \ ,\ y_{i} \ realization\ of\ Y_{i} \sim Bernoulli( p_{i}( x_{i}))$$
 
@@ -655,7 +655,7 @@ gives the highest contribute towards being predicted as defaulters</p>
 
 Decision Trees are the most intuitive and interpretable machine learning model, which predict the target label by learning simple decision rules inferred from the data. At each step, a Decision Tree picks the feature that best divides the space into different labels, by means of the GINI impurity measure: <br><br>
 
-$$ GINI(t) =\sum^{C}_{i=1} p_{t}(k)(1-p_{t}(k)) = 1-\sum^{C}_{i=1} p_{t}(k)^{2} $$
+$$ GINI(t) =\sum_{i=1}^{C} p_{t}(k)(1-p_{t}(k)) = 1-\sum_{i=1}^{C} p_{t}(k)^{2} $$
 
 where $p_{t}(k)$ is the frequency of class $k$ appearing in node $t$, with $C$ the total number of classes. The lower the measure, the less impure the node is.
 
