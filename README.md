@@ -418,9 +418,9 @@ PCA is an **unsupervised learning** technique that performs a linear transformat
 
 The intuition behind this approach lies in the fact that if the direction of maximum variance in the original space is not directly captured by the features in the dataset, then that direction might be used to construct a new feature that has a larger variance, hence probably encoding more information. Therefore, the following minimization problem is performed for finding the direction of maximum variance:  
   
-$$ X\in \mathbb{R}^{n\times d} , dataset\ centered\ in\ zero\ 
-\Sigma :=\frac{X^{T} X}{n-1},\ sample\ covariance\ matrix
-find\ \ \overrightarrow{z_{1}} :=a_{1}\overrightarrow{e_{1}} +...+a_{d}\overrightarrow{e_{d}} 
+$$ X\in \mathbb{R}^{n\times d} , dataset\ centered\ in\ zero\ <br/>
+\Sigma :=\frac{X^{T} X}{n-1},\ sample\ covariance\ matrix <br/>
+find\ \ \overrightarrow{z_{1}} :=a_{1}\overrightarrow{e_{1}} +...+a_{d}\overrightarrow{e_{d}}  <br/>
 s.t.:     \overrightarrow{z_{1}} =\underset{\vec{z}_{1}}{argmax} \ \ \vec{z}_{1}^{T} \ \Sigma \ \ \vec{z}_{1} ,   \ subject\ to:\ \Vert \vec{z}_{1}\Vert =1 $$
 
 Recursively, all other dimensions are then computed in the same way, additionally forcing them to be orthogonal to the previous dimensions found. The new features $z_{i}$ are denoted as **principal components** (PCs).
