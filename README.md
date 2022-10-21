@@ -529,7 +529,7 @@ Cluster Centroids make use of K-means algorithm to perform undersampling. After 
 Example of Cluster Centroids application on a trivial dataset
 </p>
 
-In particular, given two class which has respectively $N$ and $M$ data points with $N\textlessM$, the algoritm trains a K-Means on points labelled with the majority class label, with $k = N$, the cardinality of the set of minority data points.  
+In particular, given two class which has respectively $N$ and $M$ data points with $N \lt M$, the algoritm trains a K-Means on points labelled with the majority class label, with $k = N$, the cardinality of the set of minority data points.  
 Then for each cluster, it replace the data points of the majority class with a new point whose coordinates correspond to the cluster centroid's coordinates. So we undersample majority class by forming clusters and replacing it with cluster centroids.
 
 ---------------------------------------------------------------
