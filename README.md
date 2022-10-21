@@ -672,7 +672,7 @@ Decision trees are however considered weak learners in the majority of cases, an
 Random Forests are an ensemble method made out of multiple decision trees. Each individual tree in the random forest makes a class prediction and the class with the most votes is assigned to the sample taken into account. The intuition behind this method is that a large number of relatively **uncorrelated** models (trees) operating as a committee will outperform any of the individual constituent model. Uncorrelation is the key of Random Forests better performances, and this is ensured through two methods:
 
 1.  Bagging (boostrap aggregation) to promote variance between each internal model, each individual tree is trained on a sample of the same size of the training dataset randomly chosen with replacement;
-2.  In addition, trees are further decorrelated by choosing only a subset of features at each split of each tree (usually $\sqrt{\Numfeatures}$).
+2.  In addition, trees are further decorrelated by choosing only a subset of features at each split of each tree (usually $\sqrt{ Numfeatures }$).
 
 Overall, each tree is then trained on a sample of the same size of the training dataset chosen with replacement, and their splits consider different features every time. This way, even if the decision trees are somewhat overfitting the data and are unstable (high variance), the overall prediction will be statistically more robust (low variance) because of Central Limit Theorem. The prediction is indeed performed by picking the majority class out of all trees.
 
