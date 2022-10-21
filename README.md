@@ -239,10 +239,10 @@ Another relevant point which could affect the classification performances is the
 
 The _Pearson’s correlation coefficient_ is a statistic that measures the linear correlation between a pair of random variables. In particular, given the random vector $(X, Y)$ :
 
-$ \rho_{X,Y} := \frac{Cov( X,\ Y)}{\sigma_{X} \sigma_{Y}}\in [ -1, 1] \subset \ \mathbb{R} $
+$$ \rho_{X,Y} := \frac{Cov( X,\ Y)}{\sigma_{X} \sigma_{Y}}\in [ -1, 1] \in \ \mathbb{R} $$
 
-where $Cov( X,\ Y)$ is the Covariance and $\sigma _{X}$ and $\sigma _{Y}$ are respectively the standard deviations of $X$ and $Y$.  
-$\rho_{X,Y}$ has a value bounded between $-1$ and $+1$.
+where $Cov( X,\ Y)$ is the Covariance and $\sigma _{X}$ and $\sigma _{Y}$ are respectively the standard deviations of X and Y.  
+$\rho_{X,Y}$ has a value bounded between -1 and +1.
 
 The higher in absolute value, the stronger the linear correlation is, meaning that on average for each large (w.r.t. the mean of $X$) value observed, a corresponding large value (w.r.t. the mean of $Y$) is also observed.  
 Note that the Pearson’s correlation coefficient is only able to capture linear trends, hence it might lead to a value of 0 for strongly non-linearly correlated variables (e.g. quadratic trend).
