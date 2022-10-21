@@ -728,7 +728,7 @@ The previous opt. problem is then generalized to the **soft margin** version, wh
 
 #### Primal Optimization Problem (Soft Margin)
 
-$$ \\underset{w,b,\xi }{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum ^{n}_{i} \\xi_{i} $$
+$$ \\underset{w,b,\xi}{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum^{n}_{i} \\xi_{i} $$
 
 $$ s.t.:\\\ y_{i}\\left( w^{T} x_{i} +b\\right) \\geqslant 1-\\xi_{i} \ ,\ \\forall i\\\ $$
 
@@ -739,7 +739,7 @@ The Lagrangian Dual Problem is as follows:
 
 **Dual Optimization Problem (Soft Margin)**
 
-$$ \underset{\alpha }{max} \ \ \sum ^{n}_{i} \alpha_{i} -\tfrac{1}{2}\sum_{i,j} \alpha_{i} \alpha_{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right) $$
+$$ \underset{\alpha}{max} \ \ \sum^{n}_{i} \alpha_{i} -\tfrac{1}{2}\sum_{i,j} \alpha_{i} \alpha_{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right) $$
 
 
 $$ s.t.: \\ \sum \alpha_{i} y_{i} =0\ \ \land \ 0\leqslant \alpha_{i} \leqslant C,\ \forall i $$
