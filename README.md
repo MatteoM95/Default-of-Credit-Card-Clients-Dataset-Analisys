@@ -744,7 +744,7 @@ $$ \underset{\alpha}{max} \ \ \sum^{n}_{i} \alpha_{i} -\tfrac{1}{2}\sum_{i,j} \a
 
 $$ s.t.: \\ \sum \alpha_{i} y_{i} =0\ \ \land \ 0\leqslant \alpha_{i} \leqslant C,\ \forall i $$
 
-By solving the dual problem (e.g. through Quadratic Programming) we find $w=\sum^{n}_{i} \alpha_{i} y_{i} x_{i}$ as a linear combination of the training data. In particular, only the points that are in between (or exactly on) the margin will have an $\\alpha_{i}\\neq0$, i.e. only the so called support vectors are affecting the decision function. The latter can be then also denoted as $sign\\left(\\sum \\alpha _{i} y_{i}\\left( x^{T}_{i} x\\right)+b\\right)$, with $x$ a generic test observation. Note how in the soft margin version the number of support vectors found is generally much higher.
+By solving the dual problem (e.g. through Quadratic Programming) we find $$ w=\sum_{i}^{n} \alpha_{i} y_{i} x_{i}$$ as a linear combination of the training data. In particular, only the points that are in between (or exactly on) the margin will have an $\\alpha_{i}\\neq0$, i.e. only the so called support vectors are affecting the decision function. The latter can be then also denoted as $sign\(\sum \alpha_{i} y_{i} \( x^{T}_{i} x\)+b \)$, with $x$ a generic test observation. Note how in the soft margin version the number of support vectors found is generally much higher.
 
 Starting from these assumptions, the SVM model can still be generalized to multiclass classification and **non-linearly separable classes**. Indeed, as for the second case, classes may follow a non-linear pattern and a hyperplane may not be the best fit for explaining our data. However, the given dataset might still be linearly separable when mapped onto a higher-dimensional space by a non-linear function phi, such that the training points are transformed as $x_{i} \\in \\mathbb{R}^{d} \\mapsto \\varphi ( x_{i}) \\in \\mathbb{R}^{d^{\\prime}} ,\ d^{\\prime}>d$.
 
@@ -762,9 +762,9 @@ Common Kernel functions used are:
 * Gaussian RBF Kernel: $K(x,x^{\\prime} )\ =\ \\exp (-\\gamma \\| x-x^{\\prime} \\| ^{2} ),\ \\gamma >0$
 * Polynomial Kernel: $K( x,x^{\\prime} ) \ =\ \\left( x^{T} x^{\\prime} +c\\right)^{d}$
 
-In particular, for the Gaussian RBF Kernel the decision function is computing a similarity measure between the test point and the support vectors (weigthed by $\\alpha\_i$ and $y\_i$), which is inversely proportional to the euclidean distance of the two, leading to an output label that is determined by the closest support vectors. The new hyperparameter gamma can be tuned to regulate how many support vectors are significantly affecting the decision function (usually set to auto: $1/n\\\_features$ or scale: $1/( n\\\_features*X.var())$).
+In particular, for the Gaussian RBF Kernel the decision function is computing a similarity measure between the test point and the support vectors (weigthed by $\\alpha\_i$ and $y\_i$), which is inversely proportional to the euclidean distance of the two, leading to an output label that is determined by the closest support vectors. The new hyperparameter gamma can be tuned to regulate how many support vectors are significantly affecting the decision function (usually set to auto: $1/n\\\_features$ or scale: $1/\(n\\\_features*X.var()\)$.
 
-The decision function then becomes $sign\\left(\\sum \\alpha _{i} y_{i}K(x_{i},x)+b\\right)$. Finally note that while it is convenient to use a kernel function, the hyperplane in higher space is not actually computed when the kernel trick is applied, i.e. the coefficients of the vector $w$ are unknown.
+The decision function then becomes $sign\(\\sum \\alpha_{i} y_{i}K(x_{i},x)+b\)$. Finally note that while it is convenient to use a kernel function, the hyperplane in higher space is not actually computed when the kernel trick is applied, i.e. the coefficients of the vector $w$ are unknown.
 
 In this study, both the linear and the gaussian RBF Kernels have been tried. The regularization parameter $C$ has been hypertuned to find the best performing model on the training set.
 
