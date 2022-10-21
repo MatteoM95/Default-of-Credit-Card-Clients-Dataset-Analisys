@@ -655,7 +655,7 @@ gives the highest contribute towards being predicted as defaulters</p>
 
 Decision Trees are the most intuitive and interpretable machine learning model, which predict the target label by learning simple decision rules inferred from the data. At each step, a Decision Tree picks the feature that best divides the space into different labels, by means of the GINI impurity measure: <br><br>
 
-$$ GINI( t) =\sum ^{C}_{i=1} p_{t}( k)( 1-p_{t}( k)) =1-\sum ^{C}_{i=1} p_{t}( k)^{2} $$
+$$ GINI(t) =\sum^{C}_{i=1} p_{t}(k)(1-p_{t}(k)) = 1-\sum^{C}_{i=1} p_{t}(k)^{2} $$
 
 where $p_{t}(k)$ is the frequency of class $k$ appearing in node $t$, with $C$ the total number of classes. The lower the measure, the less impure the node is.
 
@@ -728,14 +728,21 @@ The previous opt. problem is then generalized to the **soft margin** version, wh
 
 #### Primal Optimization Problem (Soft Margin)
 
-$$ \\underset{w,b,\xi }{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum ^{n}_{i} \\xi_{i}\\\ \\\ s.t.:\\\ y_{i}\\left( w^{T} x_{i} +b\\right) \\geqslant 1-\\xi_{i} \ ,\ \\forall i\\\ \\xi_{i} \\geqslant 0\ ,\ \\forall i\\\ $$
+$$ \\underset{w,b,\xi }{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum ^{n}_{i} \\xi_{i} $$
+
+$$ s.t.:\\\ y_{i}\\left( w^{T} x_{i} +b\\right) \\geqslant 1-\\xi_{i} \ ,\ \\forall i\\\ $$
+
+$$\\xi_{i} \\geqslant 0\ ,\ \\forall i\\\ $$
 
 Where $\xi$ is a slack variable which is introduced to in order to soften the misclassification constraint, allowing the model to make a certain number of mistakes and letting the margin to remain as wide as possible. The amount of misclassification allowed is controlled by the hyperparameter $C$ which regulates the strength of the Hinge Loss term introduced: a higher $C$ will lead to a stronger minimization of the hinge loss (forcing training points to be more correctly classified), while a lower $C$ imposes a harder regularization (allowing more missclassifications) leading to a larger margin.  
 The Lagrangian Dual Problem is as follows:
 
 **Dual Optimization Problem (Soft Margin)**
 
-$$ \underset{\alpha }{max} \ \ \sum ^{n}_{i} \alpha_{i} -\tfrac{1}{2}\sum_{i,j} \alpha_{i} \alpha_{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right)\\\ \\\ s.t.: \\ \sum \alpha_{i} y_{i} =0\ \ \land \ 0\leqslant \alpha_{i} \leqslant C,\ \forall i $$
+$$ \underset{\alpha }{max} \ \ \sum ^{n}_{i} \alpha_{i} -\tfrac{1}{2}\sum_{i,j} \alpha_{i} \alpha_{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right) $$
+
+
+$$ s.t.: \\ \sum \alpha_{i} y_{i} =0\ \ \land \ 0\leqslant \alpha_{i} \leqslant C,\ \forall i $$
 
 By solving the dual problem (e.g. through Quadratic Programming) we find $w=\sum^{n}_{i} \alpha_{i} y_{i} x_{i}$ as a linear combination of the training data. In particular, only the points that are in between (or exactly on) the margin will have an $\\alpha_{i}\\neq0$, i.e. only the so called support vectors are affecting the decision function. The latter can be then also denoted as $sign\\left(\\sum \\alpha _{i} y_{i}\\left( x^{T}_{i} x\\right)+b\\right)$, with $x$ a generic test observation. Note how in the soft margin version the number of support vectors found is generally much higher.
 
