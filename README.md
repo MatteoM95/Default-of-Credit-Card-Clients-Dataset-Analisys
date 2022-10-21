@@ -420,15 +420,12 @@ The intuition behind this approach lies in the fact that if the direction of max
   
 $$ X\in \mathbb{R}^{n\times d} , dataset\ centered\ in\ zero $$
 
-.__
 
 $$ \Sigma :=\frac{X^{T} X}{n-1},\ sample\ covariance\ matrix $$ 
 
-.__
 
 $$ find\ \ \overrightarrow{z_{1}} :=a_{1} \overrightarrow{e_{1}} +...+a_{d}\overrightarrow{e_{d}} $$ 
 
-.__
 
 $$ s.t.: \ \   \overrightarrow{z_{1}} =\underset{\vec{z}_{1}}{argmax} \ \ \vec{z}_{1}^{T} \ \Sigma \ \ \vec{z}_{1} ,   \ subject\ to:\ \Vert \vec{z}_{1}\Vert =1 $$
 
@@ -532,7 +529,7 @@ Cluster Centroids make use of K-means algorithm to perform undersampling. After 
 Example of Cluster Centroids application on a trivial dataset
 </p>
 
-In particular, given two class which has respectively $N$ and $M$ data points with $N<M$, the algoritm trains a K-Means on points labelled with the majority class label, with $k = N$, the cardinality of the set of minority data points.  
+In particular, given two class which has respectively $N$ and $M$ data points with $N\textlessM$, the algoritm trains a K-Means on points labelled with the majority class label, with $k = N$, the cardinality of the set of minority data points.  
 Then for each cluster, it replace the data points of the majority class with a new point whose coordinates correspond to the cluster centroid's coordinates. So we undersample majority class by forming clusters and replacing it with cluster centroids.
 
 ---------------------------------------------------------------
@@ -611,9 +608,12 @@ In this analysis we focus our attention in detecting which customer may be defau
 
 ### Logistic Regression
 
-Logistic Regression is a parametric, discriminative binary classification algorithm. The name is given after the fact that the algorithm can be interpreted as part of the _Generalized Linear Model_, where the response variables are distributed according to a Bernoulli distribution. In particular, the model assumes the predictors to be linked to the mean of the response variables ($p_i$) as:
+Logistic Regression is a parametric, discriminative binary classification algorithm. The name is given after the fact that the algorithm can be interpreted as part of the _Generalized Linear Model_, where the response variables are distributed according to a Bernoulli distribution. In particular, the model assumes the predictors to be linked to the mean of the response variables ($p_{i}$) as:
 
-$$ observation\ ( x_{i} , y_{i}) \ ,\ y_{i} \ realization\ of\ Y_{i} \sim Bernoulli( p_{i}( x_{i}))\\\ \\\ log\left(\frac{p_{i}}{1-p_{i}}\right) =w^{T} x_{i} \ \Longleftrightarrow \ p_{i} =\frac{1}{1+e^{-w^{T} x_{i}}} \ ,\ for\ all\ i $$
+$$ observation\ ( x_{i} , y_{i}) \ ,\ y_{i} \ realization\ of\ Y_{i} \sim Bernoulli( p_{i}( x_{i}))$$
+
+
+$$ log\left(\frac{p_{i}}{1-p_{i}}\right) =w^{T} x_{i} \ \Longleftrightarrow \ p_{i} =\frac{1}{1+e^{-w^{T} x_{i}}} \ ,\ for\ all\ i $$
 
 <p align = "center">
 <img height="300" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Sigmoid-function-2.svg">
@@ -653,7 +653,9 @@ gives the highest contribute towards being predicted as defaulters</p>
 
 ### Decision Tree
 
-Decision Trees are the most intuitive and interpretable machine learning model, which predict the target label by learning simple decision rules inferred from the data. At each step, a Decision Tree picks the feature that best divides the space into different labels, by means of the GINI impurity measure: <br><br>$ GINI( t) =\sum ^{C}_{i=1} p_{t}( k)( 1-p_{t}( k)) =1-\sum ^{C}_{i=1} p_{t}( k)^{2} $
+Decision Trees are the most intuitive and interpretable machine learning model, which predict the target label by learning simple decision rules inferred from the data. At each step, a Decision Tree picks the feature that best divides the space into different labels, by means of the GINI impurity measure: <br><br>
+
+$$ GINI( t) =\sum ^{C}_{i=1} p_{t}( k)( 1-p_{t}( k)) =1-\sum ^{C}_{i=1} p_{t}( k)^{2} $$
 
 where $p_{t}(k)$ is the frequency of class $k$ appearing in node $t$, with $C$ the total number of classes. The lower the measure, the less impure the node is.
 
@@ -726,14 +728,14 @@ The previous opt. problem is then generalized to the **soft margin** version, wh
 
 #### Primal Optimization Problem (Soft Margin)
 
-$$ \\underset{w,b,\xi }{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum ^{n}_{i} \\xi _{i}\\\ \\\ s.t.:\\\ y_{i}\\left( w^{T} x_{i} +b\\right) \\geqslant 1-\\xi _{i} \ ,\ \\forall i\\\ \\xi _{i} \\geqslant 0\ ,\ \\forall i\\\ $$
+$$ \\underset{w,b,\xi }{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum ^{n}_{i} \\xi_{i}\\\ \\\ s.t.:\\\ y_{i}\\left( w^{T} x_{i} +b\\right) \\geqslant 1-\\xi_{i} \ ,\ \\forall i\\\ \\xi_{i} \\geqslant 0\ ,\ \\forall i\\\ $$
 
 Where $\xi$ is a slack variable which is introduced to in order to soften the misclassification constraint, allowing the model to make a certain number of mistakes and letting the margin to remain as wide as possible. The amount of misclassification allowed is controlled by the hyperparameter $C$ which regulates the strength of the Hinge Loss term introduced: a higher $C$ will lead to a stronger minimization of the hinge loss (forcing training points to be more correctly classified), while a lower $C$ imposes a harder regularization (allowing more missclassifications) leading to a larger margin.  
 The Lagrangian Dual Problem is as follows:
 
 **Dual Optimization Problem (Soft Margin)**
 
-$$ \underset{\alpha }{max} \ \ \sum ^{n}_{i} \alpha _{i} -\tfrac{1}{2}\sum _{i,j} \alpha _{i} \alpha _{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right)\\\ \\\ s.t.: \\ \sum \alpha _{i} y_{i} =0\ \ \land \ 0\leqslant \alpha _{i} \leqslant C,\ \forall i $$
+$$ \underset{\alpha }{max} \ \ \sum ^{n}_{i} \alpha_{i} -\tfrac{1}{2}\sum_{i,j} \alpha_{i} \alpha_{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right)\\\ \\\ s.t.: \\ \sum \alpha_{i} y_{i} =0\ \ \land \ 0\leqslant \alpha_{i} \leqslant C,\ \forall i $$
 
 By solving the dual problem (e.g. through Quadratic Programming) we find $w=\sum^{n}_{i} \alpha_{i} y_{i} x_{i}$ as a linear combination of the training data. In particular, only the points that are in between (or exactly on) the margin will have an $\\alpha_{i}\\neq0$, i.e. only the so called support vectors are affecting the decision function. The latter can be then also denoted as $sign\\left(\\sum \\alpha _{i} y_{i}\\left( x^{T}_{i} x\\right)+b\\right)$, with $x$ a generic test observation. Note how in the soft margin version the number of support vectors found is generally much higher.
 
