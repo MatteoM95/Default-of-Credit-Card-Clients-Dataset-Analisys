@@ -148,7 +148,9 @@ For example, the following criticities can be observed:
 
 * the column name `PAY_0` should be renamed in `PAY_1`;
 * about `EDUCATION` and `MARRIAGE` there are some undocumented categories;
-* the columns `PAY_n` have a minimum in -2 (undocumented) and a maximum equal to 8. So, it is likely that these attributes need to be rescaled. \### 2.2 Data Cleaning
+* the columns `PAY_n` have a minimum in -2 (undocumented) and a maximum equal to 8. So, it is likely that these attributes need to be rescaled. 
+
+### 2.2 Data Cleaning
 
 The presence of errors in the dataset can be addressed in two ways:
 
@@ -241,7 +243,7 @@ The _Pearson’s correlation coefficient_ is a statistic that measures the linea
 
 $$ \rho_{X,Y} := \frac{Cov( X,\ Y)}{\sigma_{X} \sigma_{Y}}\in [ -1, 1] \in \ \mathbb{R} $$
 
-where $Cov( X,\ Y)$ is the Covariance and $\sigma _{X}$ and $\sigma _{Y}$ are respectively the standard deviations of X and Y.  
+where $Cov( X,\ Y)$ is the Covariance and $\sigma_{X}$ and $\sigma_{Y}$ are respectively the standard deviations of X and Y.  
 $\rho_{X,Y}$ has a value bounded between -1 and +1.
 
 The higher in absolute value, the stronger the linear correlation is, meaning that on average for each large (w.r.t. the mean of $X$) value observed, a corresponding large value (w.r.t. the mean of $Y$) is also observed.  
