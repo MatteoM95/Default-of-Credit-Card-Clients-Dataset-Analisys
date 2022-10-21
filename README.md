@@ -322,7 +322,7 @@ _Note that for the purpose a normalization was applied on all the attributes to 
 As mentioned above, input variables may have different units so different scales and magnitude; for this reason before drawing a boxplot, a `MinMaxScaler()` is applied in order to scale the features between a range $(0, 1)$. The basic idea behind this rescaling technique is that for every feature, the minimum value of that feature gets transformed into a 0, the maximum value gets transformed into a 1, and every other value gets transformed into a decimal between 0 and 1.  
 The transformation is given by the following formula:
 
-$ X_{scaled} = \frac{(X - X_{min})}{(X_{max} - X_{min})} $
+$$ X_{scaled} = \frac{(X - X_{min})}{(X_{max} - X_{min})} $$
 
 where $X_{min}$ is the minimum value on the column and $X_{max}$ is the maximum value on the column.
 
@@ -332,7 +332,7 @@ This transformation is applied on **numerical features** only as the categorical
 
 Another possible scaling technique is referred to as **standardization**, which transforms each value $x$ of feature $X$ as follows, independently for each column:
 
-$ x^{\prime} =\frac{x-\mu_{X}}{\sigma_{X}} $
+$$ x^{\prime} =\frac{x-\mu_{X}}{\sigma_{X}} $$
 
 where $\mu_{X}$ is the sample mean and $\\sigma_{X}$ is the sample standard deviation of feature $X$. This way, we force each attribute to have a new empirical mean value of 0 and variance 1.
 
@@ -418,13 +418,13 @@ PCA is an **unsupervised learning** technique that performs a linear transformat
 
 The intuition behind this approach lies in the fact that if the direction of maximum variance in the original space is not directly captured by the features in the dataset, then that direction might be used to construct a new feature that has a larger variance, hence probably encoding more information. Therefore, the following minimization problem is performed for finding the direction of maximum variance:  
   
-$ X\in \mathbb{R}^{n\times d} , dataset\ centered\ in\ zero\\\ \Sigma :=\frac{X^{T} X}{n-1},\ sample\ covariance\ matrix\\ find\ \ \overrightarrow{z_{1}} :=a_{1}\overrightarrow{e_{1}} +...+a_{d}\overrightarrow{e_{d}} \\ \\\ \\ s.t.: \\\ \\ \overrightarrow{z_{1}} =\underset{\vec{z}_{1}}{argmax} \ \ \vec{z}_{1}^{T} \ \Sigma \ \ \vec{z}_{1} ,\ subject\ to:\ \Vert \vec{z}_{1}\Vert =1 $ 
+$$ X\in \mathbb{R}^{n\times d} , dataset\ centered\ in\ zero\\\ \Sigma :=\frac{X^{T} X}{n-1},\ sample\ covariance\ matrix\\ find\ \ \overrightarrow{z_{1}} :=a_{1}\overrightarrow{e_{1}} +...+a_{d}\overrightarrow{e_{d}} \\ \\\ \\ s.t.: \\\ \\ \overrightarrow{z_{1}} =\underset{\vec{z}_{1}}{argmax} \ \ \vec{z}_{1}^{T} \ \Sigma \ \ \vec{z}_{1} ,\ subject\ to:\ \Vert \vec{z}_{1}\Vert =1 $$
 
 Recursively, all other dimensions are then computed in the same way, additionally forcing them to be orthogonal to the previous dimensions found. The new features $z_{i}$ are denoted as **principal components** (PCs).
 
 The above optimization problem can be easily proved to be equivalent to computing the eigendecomposition of $\Sigma$ and selecting its eigenvectors as the principal components, which is the way PCA is executed in practice. In particular, being $\Sigma$ a symmetric positive semidefinite matrix, it is always possible to diagonalize it by means of an orthogonal matrix $P$ (eigenvectors of $\Sigma$), and obtain the resulting similar matrix $\Lambda$:  
   
-$ \Lambda =\ \begin{pmatrix} \lambda_{1} & 0 & \cdots & 0\\\ 0 & \lambda _{2} & \ddots & \vdots \\\ \vdots & \ddots & \ddots & 0\\\ 0 & \cdots & 0 & \lambda_{d} \end{pmatrix} \ ,\ \lambda_{1} \geqslant \lambda_{2} \geqslant ...\geqslant \lambda_{d} \geqslant 0,\ \lambda_{i} \in \mathbb{R}^{+} $
+$$ \Lambda =\ \begin{pmatrix} \lambda_{1} & 0 & \cdots & 0\\\ 0 & \lambda _{2} & \ddots & \vdots \\\ \vdots & \ddots & \ddots & 0\\\ 0 & \cdots & 0 & \lambda_{d} \end{pmatrix} \ ,\ \lambda_{1} \geqslant \lambda_{2} \geqslant ...\geqslant \lambda_{d} \geqslant 0,\ \lambda_{i} \in \mathbb{R}^{+} $$
 
 where $\lambda_{i}$ are the eigenvalues of $\Sigma$, or equivalently the variances of the new features found. Note that, since $\Sigma$ and $\Lambda$ are similar matrices, they have the same trace, meaning that the initial total variance among the features of the dataset is not changing but it is just getting redistributed on new axes (which is expected as all we are doing is just a rigid rotation of the space). In particular, we can compute the variance explained by each new principal component with respect to the total variance of the dataset.
 
@@ -601,7 +601,7 @@ In this analysis we focus our attention in detecting which customer may be defau
 
 Logistic Regression is a parametric, discriminative binary classification algorithm. The name is given after the fact that the algorithm can be interpreted as part of the _Generalized Linear Model_, where the response variables are distributed according to a Bernoulli distribution. In particular, the model assumes the predictors to be linked to the mean of the response variables ($p_i$) as:
 
-$ observation\ ( x_{i} , y_{i}) \ ,\ y_{i} \ realization\ of\ Y_{i} \sim Bernoulli( p_{i}( x_{i}))\\\ \\\ log\left(\frac{p_{i}}{1-p_{i}}\right) =w^{T} x_{i} \ \Longleftrightarrow \ p_{i} =\frac{1}{1+e^{-w^{T} x_{i}}} \ ,\ for\ all\ i $
+$$ observation\ ( x_{i} , y_{i}) \ ,\ y_{i} \ realization\ of\ Y_{i} \sim Bernoulli( p_{i}( x_{i}))\\\ \\\ log\left(\frac{p_{i}}{1-p_{i}}\right) =w^{T} x_{i} \ \Longleftrightarrow \ p_{i} =\frac{1}{1+e^{-w^{T} x_{i}}} \ ,\ for\ all\ i $$
 
 <p align = "center">
 <img height="300" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Sigmoid-function-2.svg">
@@ -612,7 +612,7 @@ Logits function
 
 The algorithm then tries to find the MLE (or MAP if a regularization term is added) of the mean of the response variables, by acting on _w_, assuming i.i.d. samples. Unlike ordinary least squares the optimization problem does not have a closed-form solution, but it’s instead solved through numerical methods.
 
-\\begin{equation} \\underset{w}{\\max} \ \\prod ^{n}_{i} \ p_{i}( x_{i} |w)^{y_{i}} \ *\ ( 1-p_{i}( x_{i} |w))^{1-y_{i}} \\end{equation}
+$$ \underset{w}{\max} \ \\prod ^{n}_{i} \ p_{i}( x_{i} |w)^{y_{i}} \ *\ ( 1-p_{i}( x_{i} |w))^{1-y_{i}} $$
 
 A **_regularization term_** is often added to prevent the coefficients to reach a too high value which would overfit the training data. The hyperparameter $C$ is applied on the new penalty term and inversely regulates the strength of the regularization in the objective function.
 ```python
@@ -700,7 +700,7 @@ More formally, it tries to define $\vec{w} ,b$ s.t. the hyperplane $w^{T}x+b=0$ 
 
 #### Primal Optimization Problem (Hard Margin) 
 
-$ \underset{w,b}{min} \tfrac{1}{2}\Vert w\Vert ^{2} \\ \\\ s.t.\ y_{i}\left( w^{T} x_{i} +b\right) \geqslant 1,\ \forall i $
+$$ \underset{w,b}{min} \tfrac{1}{2}\Vert w\Vert ^{2} \\ \\\ s.t.\ y_{i}\left( w^{T} x_{i} +b\right) \geqslant 1,\ \forall i $$
 
 The decision function on a binary label $\{-1,1\}$ is then applied as $x\mapsto sign\left( w^{T} x+b\right)$. Geometrically, the best hyperplane is completely determined by the points $\overrightarrow{x_{i}}$ the lie right on the boundary of the margin $|w^{T}x_{i}+b|=1$. These points are called **_support vectors_**.
 
@@ -708,20 +708,20 @@ This model is referred to as **Hard-margin SVM**, where data is supposed to be l
 
 To extend the model on classes that are not perfectly separable by means of a hyperplane, the hinge loss function is introduced, which penalizes points falling in between the margin:
 
-$ L_{hinge} := \max\left( 0, 1-y_{i}\left( w^{T} x_{i} +b\right)\right) $
+$$ L_{hinge} := \max\left( 0, 1-y_{i}\left( w^{T} x_{i} +b\right)\right) $$
 
 The previous opt. problem is then generalized to the **soft margin** version, which is equivalent to the ERM of the hinge loss with an L2 regularization term:
 
 #### Primal Optimization Problem (Soft Margin)
 
-$ \\underset{w,b,\xi }{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum ^{n}_{i} \\xi _{i}\\\ \\\ s.t.:\\\ y_{i}\\left( w^{T} x_{i} +b\\right) \\geqslant 1-\\xi _{i} \ ,\ \\forall i\\\ \\xi _{i} \\geqslant 0\ ,\ \\forall i\\\ $
+$$ \\underset{w,b,\xi }{min} \ \ \\tfrac{1}{2}\\Vert w\\Vert ^{2} \ +C\\sum ^{n}_{i} \\xi _{i}\\\ \\\ s.t.:\\\ y_{i}\\left( w^{T} x_{i} +b\\right) \\geqslant 1-\\xi _{i} \ ,\ \\forall i\\\ \\xi _{i} \\geqslant 0\ ,\ \\forall i\\\ $$
 
 Where $\xi$ is a slack variable which is introduced to in order to soften the misclassification constraint, allowing the model to make a certain number of mistakes and letting the margin to remain as wide as possible. The amount of misclassification allowed is controlled by the hyperparameter $C$ which regulates the strength of the Hinge Loss term introduced: a higher $C$ will lead to a stronger minimization of the hinge loss (forcing training points to be more correctly classified), while a lower $C$ imposes a harder regularization (allowing more missclassifications) leading to a larger margin.  
 The Lagrangian Dual Problem is as follows:
 
 **Dual Optimization Problem (Soft Margin)**
 
-$ \underset{\alpha }{max} \ \ \sum ^{n}_{i} \alpha _{i} -\tfrac{1}{2}\sum _{i,j} \alpha _{i} \alpha _{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right)\\\ \\\ s.t.: \\ \sum \alpha _{i} y_{i} =0\ \ \land \ 0\leqslant \alpha _{i} \leqslant C,\ \forall i $
+$$ \underset{\alpha }{max} \ \ \sum ^{n}_{i} \alpha _{i} -\tfrac{1}{2}\sum _{i,j} \alpha _{i} \alpha _{j} y_{i} y_{j}\left( x^{T}_{i} x_{j}\right)\\\ \\\ s.t.: \\ \sum \alpha _{i} y_{i} =0\ \ \land \ 0\leqslant \alpha _{i} \leqslant C,\ \forall i $$
 
 By solving the dual problem (e.g. through Quadratic Programming) we find $w=\sum^{n}_{i} \alpha_{i} y_{i} x_{i}$ as a linear combination of the training data. In particular, only the points that are in between (or exactly on) the margin will have an $\\alpha_{i}\\neq0$, i.e. only the so called support vectors are affecting the decision function. The latter can be then also denoted as $sign\\left(\\sum \\alpha _{i} y_{i}\\left( x^{T}_{i} x\\right)+b\\right)$, with $x$ a generic test observation. Note how in the soft margin version the number of support vectors found is generally much higher.
 
