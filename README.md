@@ -98,7 +98,7 @@ The last variable is the one to be predicted:
 The main aim of the data is to discriminate clients that are predicted to credit card default the next month, according to the `default.payment.next.month` column which is set to “0” for non-defaulters and “1” for defaulters. Thus, it is a **_binary classification problem_** on a relatively _unbalanced dataset_, as shown in the following figure.
 
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/class-distribution.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/imbalanced_plot.svg">
 </p>
 <p align = "center">
 Class distribution
