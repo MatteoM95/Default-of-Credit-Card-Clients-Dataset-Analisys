@@ -229,7 +229,7 @@ The very high value of standard deviation has been further investigated. As can 
 
 
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/LIMIT_BAL_distribution.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/continuosDistribution.svg">
 </p>
 <p align = "center">
 Density plot of amount of given credit (LIMIT_BAL)
