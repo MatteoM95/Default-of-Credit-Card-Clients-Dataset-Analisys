@@ -254,7 +254,7 @@ In practice, the underlying probability distribution is not known but only a sam
 The following representation shows the correlation matrix between features: since the way the matrix is constructed make it symmetric and because of the large number of features, only the heatmap of the lower diagonal matrix (the diagonal itself is excluded) is reported for a better visualization.  
 
 <p align = "center">
-<img height="500" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/correlation%20matrix.png?raw=true">
+<img height="500" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/correlation.svg">
 </p>
 <p align = "center">
 Correlation matrix by means of the Pearson’s coefficient for all feature pairs.
