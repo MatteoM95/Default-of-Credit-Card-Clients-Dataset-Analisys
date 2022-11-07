@@ -268,7 +268,7 @@ As shown in the correlation matrix above, some features show high correlations w
 
 To give a further proof of the linear dipendence of these variables, their interactions plots are shown:  
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/scatter-correlated_features.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/correlation.svg">
 </p>
 <p align = "center">
 Distribution of correlated features (scatter plot)
