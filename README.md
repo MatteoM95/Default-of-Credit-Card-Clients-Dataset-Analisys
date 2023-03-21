@@ -7,7 +7,8 @@
 
 Classification of default of credit card clients from the [UCI dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients) using machine learning techniques. 
 
-The complete technical report is avalaible [here](https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/Report_MML_Default-of-Credit-Card-Clients-Dataset-Analisys.pdf).
+The complete technical report is avalaible [here](https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/Default_of_Credit_Card_Clients.ipynb).
+A web-browser page is available [here](https://htmlpreview.github.io/?https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/Default_of_Credit_Card_Clients.html)
 
 ---
 ## Contents:
