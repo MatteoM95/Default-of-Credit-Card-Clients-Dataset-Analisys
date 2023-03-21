@@ -256,7 +256,7 @@ In practice, the underlying probability distribution is not known but only a sam
 The following representation shows the correlation matrix between features: since the way the matrix is constructed make it symmetric and because of the large number of features, only the heatmap of the lower diagonal matrix (the diagonal itself is excluded) is reported for a better visualization.  
 
 <p align = "center">
-<img height="500" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/correlation.svg">
+<img height="750" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/correlation.png">
 </p>
 <p align = "center">
 Correlation matrix by means of the Pearson’s coefficient for all feature pairs.
@@ -267,30 +267,6 @@ As shown in the correlation matrix above, some features show high correlations w
 * BILL\_AMT1 and BILL\_AMT2 have $\rho = 0.95$
 * BILL\_AMT2 and BILL\_AMT3 have $\rho = 0.93$
 * BILL\_AMT4 and BILL\_AMT5 have $\rho = 0.94$
-
-To give a further proof of the linear dipendence of these variables, their interactions plots are shown:  
-<p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/scatter-correlated_features.png?raw=true">
-</p>
-<p align = "center">
-Distribution of correlated features (scatter plot)
-</p>
-
-The charts confirm what expected, the features in the same graph shows a linear trend as the Pearson coefficient suggested, indicating they encode pretty similar information.  
-
-For completness, also charts of non-strongly correlated features are reported. In particular:
-
-* AGE and LIMIT_BAL $\rho = 0.14$
-* AGE and BILL_AMT1 $\rho = 0.055$
-* PAY\_AMT1 and BILL\_AMT1 $\rho = 0.099$
-
-The following charts are obtained:  
-<p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/scatter-uncorrelated.png?raw=true">
-</p>
-<p align = "center">
-Distribution of uncorrelated features
-</p>
 
 In order to remove correlated features some dimensionality reduction techinques will be performed during the Data Preprocessing phase.
 
@@ -347,7 +323,7 @@ X_train = scaler.transform(X_train)
 X_test = scaler.transform(X_test)
 ```
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/boxplots.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/normalized.svg">
 </p>
 <p align = "center">
 Boxplots of numerical features scaled according min-max normalization (left) and standardization (right)
@@ -444,7 +420,7 @@ Finally note that $\Lambda$ is now the covariance matrix in the new basis found,
 In this study, PCA has been performed on the Credit card dataset to deal with the multicollinearity problem and reduce the number of dimensions. The following figure shows how the variance has been redistributed on the new features extracted.
 
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/pca.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/PCACumulative.svg">
 </p>
 <p align = "center">
 Explained variance ratio of each principle component, together with the  
@@ -646,13 +622,6 @@ algorithms. Note that scores reported refers to the positive class.</p>
 
 As a result, the output of a Logistic Regression model is the probability of the input sample to be of class 1, hence a confidence measure is also returned when predictions are performed. On top of this, the coefficients returned by the algorithm may give interpretable insights on what attributes are contributing the most to a higher output value, and viceversa.
 
-<p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/logisticregression_coefficents.png?raw=true">
-</p>
-<p align = "center">
-Coefficients found by Logistic Regression. The PC5 feature empirically  
-gives the highest contribute towards being predicted as defaulters</p>
-
 ### Decision Tree
 
 Decision Trees are the most intuitive and interpretable machine learning model, which predict the target label by learning simple decision rules inferred from the data. At each step, a Decision Tree picks the feature that best divides the space into different labels, by means of the GINI impurity measure: <br><br>
@@ -678,14 +647,6 @@ Random Forests are an ensemble method made out of multiple decision trees. Each 
 
 Overall, each tree is then trained on a sample of the same size of the training dataset chosen with replacement, and their splits consider different features every time. This way, even if the decision trees are somewhat overfitting the data and are unstable (high variance), the overall prediction will be statistically more robust (low variance) because of Central Limit Theorem. The prediction is indeed performed by picking the majority class out of all trees.
 
-Hyperparameter tuning on the number of trees and pruning factors for each tree has been performed. In particular, note how the predictions tend to be better as the ensemble model grows horizontally in size:
-
-<p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/randomforest_compare_score.png?raw=true">
-</p>
-<p align = "center">
-Tuning of hyperparameter n_estimator is reported both for SMOTE (left) and Cluster Centroids (right) algorithms.</p>
-
 * The choice of the imbalancing technique affect the performance of the Random forest. Indeed, the oversampling technique is preferable.
 * Also, the hyperparameter that regulates the number of estimators seems to be irrelevant over the performance of the algorithms.
 ```python
@@ -696,7 +657,7 @@ params = {'criterion': 'gini', 'max_features': 'sqrt', 'n_estimators': 100}
 Finally, tree-based model can be used as an alternative method for feature selection. They indeed provide a feature importance measure by means of how much the gini index has been affected on the various splits with the given feature. Compared to decision tree, random forests guarantee robustness and are less prone to overfitting.  
 
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/randomforest-feature_importance.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/LaTex/featureRF.png">
 </p>
 <p align = "center">
 Feature importance computed by the random forest on each of the attributes</p>
@@ -798,7 +759,7 @@ In conclusion, also in this case the results should be improved in order to get 
 ---
 ## Results
 
-The following barplot displays a summary of results in the training-validation phase where all the algorithms are trained with their best hyperparameters (i.e. the ones that maximize the f1-score on positive class), with both techniques presented to overcome class imbalancing problem. ![](https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/final_comparison_f1score.png?raw=true)
+The following barplot displays a summary of results in the training-validation phase where all the algorithms are trained with their best hyperparameters (i.e. the ones that maximize the f1-score on positive class), with both techniques presented to overcome class imbalancing problem. ![](https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/main/images/results.png)
 
 _Comparison of F1-score with different algorithms_
 
@@ -845,3 +806,4 @@ In this study different supervised learning algorithms have been inspected and p
 \[2\] Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 2473-2480. [link](https://bradzzz.gitbooks.io/ga-seattle-dsi/content/dsi/dsi_05_classification_databases/2.1-lesson/assets/datasets/DefaultCreditCardClients_yeh_2009.pdf)  
   
 \[3\] Understanding Machine Learning: From Theory to Algorithms, S. Shalev-Shwartz, S. Ben-David, 2014 [link](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf)
+
