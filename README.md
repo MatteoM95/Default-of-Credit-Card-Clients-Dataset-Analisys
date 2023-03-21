@@ -613,13 +613,6 @@ params = {'C': [0.0001, 0.001, 0.01, 0.1, 1, 10]}
 #Data prepocessing: PCA+SMOTE
 ```
 
-<p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/logisticregression_compare_score.png?raw=true">
-</p>
-<p align = "center">
-Tuning of hyperparameter C on the training set both with SMOTE (left) and Cluster Centroids (right)  
-algorithms. Note that scores reported refers to the positive class.</p>
-
 As a result, the output of a Logistic Regression model is the probability of the input sample to be of class 1, hence a confidence measure is also returned when predictions are performed. On top of this, the coefficients returned by the algorithm may give interpretable insights on what attributes are contributing the most to a higher output value, and viceversa.
 
 ### Decision Tree
