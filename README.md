@@ -410,14 +410,13 @@ The intuition behind this approach lies in the fact that if the direction of max
   
 $$ X\in \mathbb{R}^{n\times d} , dataset\ centered\ in\ zero $$
 
-
 $$ \Sigma :=\frac{X^{T} X}{n-1},\ sample\ covariance\ matrix $$ 
-
 
 $$ find\ \ \overrightarrow{z_{1}} :=a_{1} \overrightarrow{e_{1}} +...+a_{d}\overrightarrow{e_{d}} $$ 
 
+$$ s.t.: \ \ \overrightarrow{z_{1}} =\underset{\vec{z}{1}}{argmax} \ \ \vec{z_{1}}^{T} \ \Sigma \ \ \vec{z_{1}} , $$
 
-$$ s.t.: \ \   \overrightarrow{z_{1}} =\underset{\vec{z}_{1}}{argmax} \ \ \vec{z}_{1}^{T} \ \Sigma \ \ \vec{z}_{1} ,   \ subject\ to:\ \Vert \vec{z}_{1}\Vert =1 $$
+$$ \ subject\ to:\ \Vert \vec{z_{1}}\Vert =1 $$
 
 Recursively, all other dimensions are then computed in the same way, additionally forcing them to be orthogonal to the previous dimensions found. The new features $z_{i}$ are denoted as **principal components** (PCs).
 
