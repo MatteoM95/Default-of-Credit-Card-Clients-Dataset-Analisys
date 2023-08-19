@@ -1,13 +1,5 @@
 # Machine learning algorithms for predicting default of Credit Card clients 💳
 
-<!--
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/code.ipynb)
-
--->
-
-
-
-
 
 
 
@@ -297,7 +289,7 @@ A boxplot represents a 5-number summary of data:
 In the boxplot we define the Interquartile range (IQR) as is the distance between the upper and lower quartiles: $IQR = Q_3 - Q_1 = q(0.75) - q(0.25) $
 
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/boxplot_theory.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/master/images/boxplot_theory.png?raw=true">
 </p>
 <p align = "center">
 Boxplot description
@@ -484,7 +476,7 @@ For both techniques there is a naïve approach that is the **_random oversamplin
 With SMOTE algorithm the minority class is augmented artificially, by constructing new synthetic samples randomly positioned in between one point and its k-neighbors. In other words, given a limited set of data points that belong to the class that we wish to augment, we trace high-dimensional lines connecting the data points and we draw new samples from such lines.  
 
 <p align = "center">
-<img src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/oversampling-smote.png?raw=true">
+<img src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/master/images/oversampling-smote.png?raw=true">
 </p>
 <p align = "center">
 Example of SMOTE application on a small dataset
@@ -510,7 +502,7 @@ accuracy = accuracy_score(y_test, y_pred)
 Cluster Centroids make use of K-means algorithm to perform undersampling. After finding the cluster centroids on the majority class points, the algorithm selects the instances belonging to the cluster (labelled with the majority class), which are furthest from the cluster centroid in feature space. These data points are considered as the most unimportant instance. On the contrary, the instance belonging to the majority class, that is nearest to the cluster centroid in feature space, is considered to be the most important instance. In this way, instances belonging to the majority class are removed on the basis of their importance.  
 
 <p align = "center">
-<img height="300" src="https://github.com/robertofranceschi/default-credit-card-prediction/blob/master/images/undersampling-cluster_centroids.png?raw=true">
+<img height="300" src="https://github.com/MatteoM95/Default-of-Credit-Card-Clients-Dataset-Analisys/blob/master/images/undersampling-cluster_centroids.png?raw=true">
 </p>
 <p align = "center">
 Example of Cluster Centroids application on a trivial dataset
